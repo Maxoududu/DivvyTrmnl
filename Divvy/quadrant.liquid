@@ -1,0 +1,48 @@
+{% assign station_found = false %}
+
+{% for station in data.stations %}
+{% if station.station_id == trmnl.plugin_settings.custom_fields_values.selected_station_id %}
+{% assign station_found = true %}
+<div class="layout layout--col gap--space-between">
+  <span class="value value--small">{{ trmnl.plugin_settings.custom_fields_values.title }}</span>
+
+<div class="columns">
+
+    <div class="column">
+      <div class="flex flex--col">
+        <span class="value value--tnums">{{ station.num_bikes_available }}</span>
+        <span class="value value--xsmall">Bikes</span>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="flex flex--col">
+        <span class="value value--tnums">{{ station.num_ebikes_available }}</span>
+        <span class="value value--xsmall">eBikes</span>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="flex flex--col">
+        <span class="value value--tnums">{{ station.num_scooters_unavailable }}</span>
+        <span class="value value--xsmall">Scooters</span>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Divvy_Logo.svg/320px-Divvy_Logo.svg.png" />
+  <span class="title"></span>
+  <span class="instance">Last Reported: {{ station.last_reported | minus: 21600 | date: "%I:%M %P" }}</span>
+</div>
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% if station_found == false %}
+<div class="layout">
+  <p>Station with ID {{ trmnl.plugin_settings.custom_fields_values.selected_station_id }} not found.</p>
+</div>
+{% endif %}

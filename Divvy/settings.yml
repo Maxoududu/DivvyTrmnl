@@ -1,0 +1,21 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: https://gbfs.lyft.com/gbfs/1.1/chi/en/station_status.json
+polling_headers: ''
+custom_fields:
+- keyname: title
+  field_type: string
+  name: Title
+  description: Display name of the station
+  placeholder: Wacker Dr & Washington St
+- keyname: selected_station_id
+  field_type: string
+  name: Station ID
+  description: Find the ID of your station on https://gbfs.lyft.com/gbfs/1.1/chi/en/station_information.json
+  placeholder: a3a3bc53-a135-11e9-9cda-0a87ae2ba916
+name: Divvy
+refresh_interval: 15
