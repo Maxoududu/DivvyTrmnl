@@ -1,5 +1,5 @@
 # DivvyTrmnl
-Chicago Divvy Bike station status tracker Plugin for [Trmnl](https://usetrmnl.com)
+[Chicago Divvy Bike](https://divvybikes.com) station status tracker Plugin for [Trmnl](https://usetrmnl.com)
 
 ### Full
 <img width="800" alt="Full" src="https://github.com/user-attachments/assets/6761fd66-1d34-44d9-8407-3c7509ff1d55" />
